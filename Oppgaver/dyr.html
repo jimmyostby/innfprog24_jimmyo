@@ -8,9 +8,11 @@
 <body>
     <p id="utskrift"></p>
     <script>
+        //Bruker const fordi den skal være konstant
         const dyr = ["katt", "hund","fisk","gnagere","reptil","elg","rotte","elefant","frosk","hest"]
+        //Bruker let fordi den kan endres, bruker så template literals for å kombinere vanlig tekst med kodespråk
+        //Bruker ${} for å data som ligger inne i dette. Bruker [] for å referere til arrayen.
         let dyrearter = `Her kommer en liste med dyrearter: ${dyr[2]} og ${dyr[6]}`
-        const index = 2
         document.getElementById("utskrift").innerHTML = dyrearter
 
 

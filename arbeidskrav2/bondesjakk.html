@@ -115,7 +115,11 @@
         var player = 1;
         var playermark = "X";
         //Dette skriver vi ut i <span>-tagene med id-ene "player" og "playermark" i <div>-tagen med id "playerturn"
-            //Lagt til semikolon for å separere kommandoene under.
+
+            /*
+            Lagt til semikolon for å separere kommandoene under.
+            */
+
         document.getElementById("player").innerHTML = player;
         document.getElementById("playermark").innerHTML = playermark;
 
@@ -163,7 +167,7 @@
         document.getElementById("celle3").addEventListener("click", function() {
             spill(3);
         });
-        document.getElementById("celle4").addEventLner("click", function() {
+        document.getElementById("celle4").addEventListener("click", function() {
             spill(4);
         });
         document.getElementById("celle5").addEventListener("click", function() {
@@ -192,7 +196,11 @@
                 var cellSpace = document.getElementById("celle"+celle).innerHTML;
                 
                 //Hvis den er ledig...
-                //Fjernet feilstaving "ifff" til "if" av if(cellSpace==="")
+
+                /*
+                Fjernet feilstaving "ifff" til "if" av if(cellSpace==="")
+                */
+               
                 if(cellSpace === "") {
                     //...sjekk hvilken spiller sin tur det er, og plasser riktig symbol på spillerbrettet
                     if (player === 1) {
@@ -284,6 +292,14 @@
                 //Sett spillstatus til false, slik at ingen spillere får plassere
                 //flere brikker på brettet - dette løses med sjekken i funksjonen spill()
                 spillStatus = false;
+
+                /*
+                Oppgave 2:
+                Brukt "https://www.w3schools.com/jsref/prop_style_backgroundcolor.asp" til å endre bakgrunnsfargen
+                i <div> med id playerturn til gull, når vunnet spillet.
+                */
+
+                document.getElementById("playerturn").style.backgroundColor= "#FFD700"
             }
         }
 

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery example</title>
+    <style>
+        section { display: flex; gap: 1rem; }
+        article { max-width: 400px; border: 1px solid #333; padding: .5rem; }
+        article img { max-width: 100%; }
+    </style>
+</head>
+<body>
+    <section id="gallery">
+
+    </section>
+
+    <script>
+        const images = [
+            {
+                title: "Silver Ice Cream",
+                imageURL: "https://images.unsplash.com/photo-1725961476494-efa87ae3106a?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                photographer: "Galeya"
+            },
+            {
+                title: "purple lady",
+                imageURL: "https://plus.unsplash.com/premium_photo-1675088136456-4eb83fc5b827?q=80&w=2535&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                photographer: "Unsplash"
+            },
+            {
+                title: "Silver Ice Cream",
+                imageURL: "https://images.unsplash.com/photo-1725961476494-efa87ae3106a?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                photographer: "Galeya"
+            }
+        ]
+
+        images.map(image => document.getElementById("gallery").innerHTML += `<article>
+            <img src="${image.imageURL}" />
+            <p><strong>${image.title}</strong></p>
+            <p>Photographer: ${image.photographer}</p> 
+            </article>`)
+    </script>
+</body>
+</html>

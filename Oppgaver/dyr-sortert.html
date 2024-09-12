@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Antall dyr(<span id="antalldyr">0</span>)</h3>
+
+    <script>
+        const dyr = ["katt", "hund","fisk","gnagere","reptil","elg","rotte","elefant","frosk","hest"]
+        //Bruker .push for å legge til elementer i slutten av en array
+        dyr.push("hval", "fugl")
+        dyr.sort()
+        dyr.sort(function(a, b) {return a-b})
+        
+        let antallDyr
+        document.getElementById("dyr").innerHTML = dyr.length
+
+
+
+        console.log(dyr)
+    </script>
+</body>
+</html>

@@ -167,6 +167,7 @@
         document.getElementById("celle3").addEventListener("click", function() {
             spill(3);
         });
+        /* Oppgave 1: Rettet opp i skrivefeil*/
         document.getElementById("celle4").addEventListener("click", function() {
             spill(4);
         });
@@ -188,6 +189,7 @@
         //Når en rute er trykket på, skal vi kjøre funksjonen spill. Denne inneholder prosessen 
         //datamaskinen må gå gjennom for å sjekke om ruten er ledig, og om den er det plassere
         //riktig spillerbrikke i ruten avhengig av hvilken spiller det er som klikker på ruten:
+   
         function spill(celle) {
             //Hvis spillstatus er true, er det lov å spille, og vi kan gjennomføre spillerhandlinger
             if(spillStatus === true) {
@@ -224,8 +226,9 @@
                     //Når brikken er plassert på spillerbrettet, må vi sjekke om den - og brikkene rundt - 
                     //utgjør en vinnerkombinasjon. Denne funksjonaliteten ligger i funksjonen sjekkVinner(),
                     //siden dette er et litt større sett med handlinger og kan gi noen ulike utfall.
+                
                     sjekkVinner();
-
+                    
                 //Men, hvis cellen ikke er ledig...
                 } else {
                     //...skriver vi ut en beskjed til spilleren, og lar han velge en ny celle.
@@ -247,6 +250,7 @@
                     document.getElementById("player").innerHTML = player;
                     document.getElementById("playermark").innerHTML = playermark;
                 }
+
             //Hvis spillstatus er false, avslutter vi funksjonen uten å utføre noen handlinger.
             } else {
                 //Så returnerer vi spillet
@@ -284,28 +288,28 @@
             }
 
             //Hvis runden er vunnet, skal vi gjøre noen handlinger:
-            if(rundenVunnet === true) { /*legg til set time her!!!!*/
+            if(rundenVunnet === true) { 
+                /*Oppgave 3: Legger til 1sek for å sjekke at spiller har vunnet*/
                 setTimeout(function() {
                 //Skriv ut hvilken spiller som har vunnet
                 document.getElementById("playerturn").innerHTML = "Spiller " + player + " har vunnet!";
+                    /*
+                Oppgave 2:
+                Brukt "https://www.w3schools.com/jsref/prop_style_backgroundcolor.asp" til å endre bakgrunnsfargen
+                i <div> med id playerturn til gull, når vunnet spillet.
+                */
+                document.getElementById("playerturn").style.backgroundColor = "#FFD700"
+
                 //Gjør restart spill-knappen synlig
                 document.getElementById("newgame").style.display = "block";
+                
                 //Sett spillstatus til false, slik at ingen spillere får plassere
                 //flere brikker på brettet - dette løses med sjekken i funksjonen spill()
                 spillStatus = false;
                 }, 1000);
 
-                /*HER SLUTTER SET TIME FUCTION*/
-
-                /*
-                Oppgave 2:
-                Brukt "https://www.w3schools.com/jsref/prop_style_backgroundcolor.asp" til å endre bakgrunnsfargen
-                i <div> med id playerturn til gull, når vunnet spillet.
-                */ 
-                document.getElementById("vinnerKomboPlass1").style.color= "FFD700"
-                function setTimeout(){
-                    document.getElementById("vinnerKomboPlass1")
-                }
+            
+                
             }
         }
 

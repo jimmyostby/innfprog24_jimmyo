@@ -284,7 +284,8 @@
             }
 
             //Hvis runden er vunnet, skal vi gjøre noen handlinger:
-            if(rundenVunnet === true) {
+            if(rundenVunnet === true) { /*legg til set time her!!!!*/
+                setTimeout(function() {
                 //Skriv ut hvilken spiller som har vunnet
                 document.getElementById("playerturn").innerHTML = "Spiller " + player + " har vunnet!";
                 //Gjør restart spill-knappen synlig
@@ -292,6 +293,9 @@
                 //Sett spillstatus til false, slik at ingen spillere får plassere
                 //flere brikker på brettet - dette løses med sjekken i funksjonen spill()
                 spillStatus = false;
+                }, 1000);
+
+                /*HER SLUTTER SET TIME FUCTION*/
 
                 /*
                 Oppgave 2:

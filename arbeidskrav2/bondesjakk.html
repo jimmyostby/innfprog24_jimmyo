@@ -289,13 +289,14 @@
 
             //Hvis runden er vunnet, skal vi gjøre noen handlinger:
             if(rundenVunnet === true) { 
-                /*Oppgave 3: Legger til 1sek for å sjekke at spiller har vunnet*/
+                /*Oppgave 3: Lest og brukt dokumentasjonen på https://www.w3schools.com/jsref/met_win_settimeout.asp
+                for å legge til 1sek for å sjekke at spiller har vunnet*/
                 setTimeout(function() {
                 //Skriv ut hvilken spiller som har vunnet
                 document.getElementById("playerturn").innerHTML = "Spiller " + player + " har vunnet!";
                     /*
                 Oppgave 2:
-                Brukt "https://www.w3schools.com/jsref/prop_style_backgroundcolor.asp" til å endre bakgrunnsfargen
+                Brukt dokumentasjon hos "https://www.w3schools.com/jsref/prop_style_backgroundcolor.asp" til å endre bakgrunnsfargen
                 i <div> med id playerturn til gull, når vunnet spillet.
                 */
                 document.getElementById("playerturn").style.backgroundColor = "#FFD700"
@@ -303,7 +304,8 @@
                 //Gjør restart spill-knappen synlig
                 document.getElementById("newgame").style.display = "block";
 
-                /*LEGG TIL KILDE HER!! oppgave 4*/
+                /*Oppgave 4: Lest og brukt dokumentasjon på https://www.w3schools.com/jsref/prop_style_color.asp for å 
+                endre fargen på spillebrikkene når spilleren har vunnet runden.*/
                 document.getElementById("celle" + vinnerKomboPlass1).style.color = "#FFD700"
                 document.getElementById("celle" + vinnerKomboPlass2).style.color = "#FFD700"
                 document.getElementById("celle" + vinnerKomboPlass3).style.color = "#FFD700"

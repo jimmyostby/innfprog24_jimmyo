@@ -37,7 +37,8 @@
             border: 6px solid #2c3e50;
             border-radius: 10px;
             display: grid;
-            grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+            /*Oppgave 6: Endret fra 3x3 spilleruter til 4x4 spilleruter*/
+            grid-template: repeat(4, 1fr) / repeat(4, 1fr);
         }
         
         .celle {
@@ -83,6 +84,15 @@
         <div id="celle6" class="celle"></div>
         <div id="celle7" class="celle"></div>
         <div id="celle8" class="celle"></div>
+        <!--Lagt til 7 celler for å få 16 ruter i spillet.-->
+        <div id="celle9" class="celle"></div>
+        <div id="celle10" class="celle"></div>
+        <div id="celle11" class="celle"></div>
+        <div id="celle12" class="celle"></div>
+        <div id="celle13" class="celle"></div>
+        <div id="celle14" class="celle"></div>
+        <div id="celle15" class="celle"></div>
+        
     </section>
     <button id="newgame" onclick="restartGame()">Start spill på nytt</button>
 
@@ -130,15 +140,20 @@
         //(indexer i spillerBrikker-arrayen)
         //som utgjør vinnerkombinasjoner. Disse lagrer vi i en array med 2 nivåer 
         //(en array, som inneholder nye arrayer med vinnerkombinasjonene)
+
+        /*Endret vinnerkombinasjoner til å passe 4x4 og ikke 3x3*/
         var winningCombos = [
-            [0, 1, 2],
-            [3, 4, 5],
-            [6, 7, 8],
-            [0, 3, 6],
-            [1, 4, 7],
-            [2, 5, 8],
-            [0, 4, 8],
-            [2, 4, 6]
+            [0, 1, 2, 3],
+            [4, 5, 6, 7],
+            [8, 9, 10, 11],
+            [12, 13, 14, 15],
+            [0, 4, 8, 12],
+            [1, 5, 9, 13],
+            [2, 6, 10, 14],
+            [3, 7, 11, 15],
+            [0, 5, 10, 15],
+            [3, 6, 9, 12]
+            
         ];
         //Disse kan vi nå vise til ved å si winningCombos[0]. Variabelen winningCombos[0] inneholder nå en array med verdiene [0, 1, 2].
         //Viser vi til winningCombos[0][1] viser vi til index 1 i den første arrayen på nivå 2. Den innholder verdien 1. Denne verdien
@@ -148,7 +163,9 @@
         //trenger vi en oversikt over Spillbrettplasseringer. Disse kan vi lagre i en array, siden vi fra
         //starten av koden så at spillbrettet kan tenkes på som indexer i en array.
         //Vi lager klar en oversikt, en array, med 9 tomme plasseringer vi senere kan fylle med spillervalg.
-        var spillerBrikker = ["","","","","","","","",""];
+
+        /*Lagt til 6 tomme plasseringer, fra 9 til 16stk*/
+        var spillerBrikker = ["","","","","","","","","","","","","","","",""];
 
         //Videre trenger vi å registrere når en spiller klikker på en rute i spillbrettet.
         //Når en spiller klikker på en rute, skal vi få noe til å skje i koden, derfor kaller vi
@@ -182,6 +199,28 @@
         });
         document.getElementById("celle8").addEventListener("click", function() {
             spill(8);
+            /*Lagt til funksjoner slik at de nye cellene er klikkbare */
+        });
+        document.getElementById("celle9").addEventListener("click", function() {
+            spill(9);
+        });
+        document.getElementById("celle10").addEventListener("click", function() {
+            spill(10);
+        });
+        document.getElementById("celle11").addEventListener("click", function() {
+            spill(11);
+        });
+        document.getElementById("celle12").addEventListener("click", function() {
+            spill(12);
+        });
+        document.getElementById("celle13").addEventListener("click", function() {
+            spill(13);
+        });
+        document.getElementById("celle14").addEventListener("click", function() {
+            spill(14);
+        });
+        document.getElementById("celle15").addEventListener("click", function() {
+            spill(15);
         });
 
         
@@ -267,11 +306,16 @@
             for(var combination = 0; combination <= 7; combination++) {
                 var vinnerKomboPlass1 = winningCombos[combination][0]; //Henter ut plassering av vinnerkombinasjonens rad 1, eksempel winningCombos[0][0] første runde, som inneholder verdien 0.
                 var vinnerKomboPlass2 = winningCombos[combination][1];
-                var vinnerKomboPlass3 = winningCombos[combination][2]
+                var vinnerKomboPlass3 = winningCombos[combination][2];
+                /*Lagt til en vinnerkombinasjon*/
+                var vinnerKomboPlass3 = winningCombos[combination][3]
+
+                /*L*/
 
                 var brikke1 = spillerBrikker[vinnerKomboPlass1]; //Henter ut verdien (spillmerket) på indexen til første vinnerkombinasjonsplass fra spillerBrikker, eksempel spillerBrikker[0] første runde.
                 var brikke2 = spillerBrikker[vinnerKomboPlass2];
                 var brikke3 = spillerBrikker[vinnerKomboPlass3];
+                var brikke4 = spillerBrikker[vinnerKomboPlass4]
 
                 //Hvis en av plassene i vinnerkombinasjonen er tom, er det ikke vunnet noe.
                 //Da kan løkken bare fortsette å kjøre.

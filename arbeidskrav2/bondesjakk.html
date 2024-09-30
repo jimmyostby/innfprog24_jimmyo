@@ -131,9 +131,8 @@
         //Dette skriver vi ut i <span>-tagene med id-ene "player" og "playermark" i <div>-tagen med id "playerturn"
 
             /*
-            Oppgave 1, rette opp feil: Lagt til semikolon for å separere kommandoene under.
+            Oppgave 1, rette opp feil: Lagt til semikolon på slutten av syntax for å separere kommandoene under.
             */
-
         document.getElementById("player").innerHTML = player;
         document.getElementById("playermark").innerHTML = playermark;
 
@@ -145,7 +144,9 @@
         //som utgjør vinnerkombinasjoner. Disse lagrer vi i en array med 2 nivåer 
         //(en array, som inneholder nye arrayer med vinnerkombinasjonene)
 
-        /*Endret vinnerkombinasjoner til å passe 4x4 og ikke 3x3*/
+
+            /*Oppgave 6= Endret vinnerkombinasjoner til å passe 4x4 og ikke 3x3. Har også lagt til flere
+            vinnerkombinasjoner, da spillbrettet består av flere celler.*/
         var winningCombos = [
             [0, 1, 2, 3],
             [4, 5, 6, 7],
@@ -168,7 +169,7 @@
         //starten av koden så at spillbrettet kan tenkes på som indexer i en array.
         //Vi lager klar en oversikt, en array, med 9 tomme plasseringer vi senere kan fylle med spillervalg.
 
-        /*Lagt til 6 tomme plasseringer, fra 9 til 16stk*/
+            /*Oppgave 6 = Lagt til 6 tomme plasseringer, fra 9 tomme plasseringer til 16 tomme plasseringer.*/
         var spillerBrikker = ["","","","","","","","","","","","","","","",""];
 
         //Videre trenger vi å registrere når en spiller klikker på en rute i spillbrettet.
@@ -188,7 +189,7 @@
         document.getElementById("celle3").addEventListener("click", function() {
             spill(3);
         });
-        /* Oppgave 1: Rettet opp i skrivefeil*/
+        /* Oppgave 1, rette opp feil: Rettet opp i skrivefeil i syntax under.*/
         document.getElementById("celle4").addEventListener("click", function() {
             spill(4);
         });
@@ -203,7 +204,8 @@
         });
         document.getElementById("celle8").addEventListener("click", function() {
             spill(8);
-            /*Lagt til funksjoner slik at de nye cellene er klikkbare */
+            /*Oppgave 6 = Lagt til 7 funksjoner slik at de nye cellene på
+            spillebrette er klikkbare */
         });
         document.getElementById("celle9").addEventListener("click", function() {
             spill(9);
@@ -311,10 +313,10 @@
                 var vinnerKomboPlass1 = winningCombos[combination][0]; //Henter ut plassering av vinnerkombinasjonens rad 1, eksempel winningCombos[0][0] første runde, som inneholder verdien 0.
                 var vinnerKomboPlass2 = winningCombos[combination][1];
                 var vinnerKomboPlass3 = winningCombos[combination][2];
-                /*Lagt til en vinnerkombinasjon*/
+                /*Oppgave 6 = Lagt til en vinnerkombinasjon*/
                 var vinnerKomboPlass4 = winningCombos[combination][3]
 
-                /*L*/
+                /*Oppgave 6 = Lagt til en syntax som henter ut verdien på indexen til vinnerkombinasjon som ble lagt til over.*/
 
                 var brikke1 = spillerBrikker[vinnerKomboPlass1]; //Henter ut verdien (spillmerket) på indexen til første vinnerkombinasjonsplass fra spillerBrikker, eksempel spillerBrikker[0] første runde.
                 var brikke2 = spillerBrikker[vinnerKomboPlass2];
@@ -323,6 +325,8 @@
 
                 //Hvis en av plassene i vinnerkombinasjonen er tom, er det ikke vunnet noe.
                 //Da kan løkken bare fortsette å kjøre.
+
+                /*Oppgave 6 = Lagt til brikke 4 i løkken under.*/
                 if(brikke1 === "" || brikke2 === "" || brikke3 === "" || brikke4 === "") {
                     continue;
                 }
@@ -338,22 +342,25 @@
             //Hvis runden er vunnet, skal vi gjøre noen handlinger:
             if(rundenVunnet === true) { 
                 /*Oppgave 3: Lest og brukt dokumentasjonen på https://www.w3schools.com/jsref/met_win_settimeout.asp
-                for å legge til 1sek for å sjekke at spiller har vunnet*/
+                for å legge til en funksjon som bruker 1sek for å sjekke at en spiller har vunnet*/
                 setTimeout(function() {
                 //Skriv ut hvilken spiller som har vunnet
                 document.getElementById("playerturn").innerHTML = "Spiller " + player + " har vunnet!";
                     /*
-                Oppgave 2:
-                Brukt dokumentasjon hos "https://www.w3schools.com/jsref/prop_style_backgroundcolor.asp" til å endre bakgrunnsfargen
-                i <div> med id playerturn til gull, når vunnet spillet.
-                */
+                    Oppgave 2:
+                    Brukt dokumentasjon hos "https://www.w3schools.com/jsref/prop_style_backgroundcolor.asp" til å endre bakgrunnsfargen
+                    i <div> med id playerturn til gull, når spillet er vunnet.
+                    */
                 document.getElementById("playerturn").style.backgroundColor = "#FFD700"
 
                 //Gjør restart spill-knappen synlig
                 document.getElementById("newgame").style.display = "block";
 
-                /*Oppgave 4: Lest og brukt dokumentasjon på https://www.w3schools.com/jsref/prop_style_color.asp for å 
-                endre fargen på spillebrikkene når spilleren har vunnet runden.*/
+                    /*Oppgave 4: Lest og brukt dokumentasjon på https://www.w3schools.com/jsref/prop_style_color.asp for å 
+                    endre fargen på spillebrikkene når spilleren har vunnet runden. Brikkene får da fargen gull.*/
+
+                    /*Oppgave 6 = Lagt til syntax under for at spillebrikke 4 også skal endre farge til gull
+                    når spillet er vunnet.*/
                 document.getElementById("celle" + vinnerKomboPlass1).style.color = "#FFD700"
                 document.getElementById("celle" + vinnerKomboPlass2).style.color = "#FFD700"
                 document.getElementById("celle" + vinnerKomboPlass3).style.color = "#FFD700"

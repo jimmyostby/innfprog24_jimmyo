@@ -112,7 +112,7 @@
     </section>
    
     <button id="newgame" onclick="restartGame()">Start spill på nytt</button>
-    <!--Oppgave 6 = Lagt til en section med teksten "Antall spill" som teller hvor mange spille som er spilt
+    <!--Oppgave 5 = Lagt til en section med teksten "Antall spill" som teller hvor mange spille som er spilt
     under restart-knappen.-->
     <section id="spillspilt">Antall spill:<span id="antallspill">1</span></section>
 
@@ -363,7 +363,9 @@
             if(rundenVunnet === true) { 
 
                 /*Oppgave 3: Lest og brukt dokumentasjonen på https://www.w3schools.com/jsref/met_win_settimeout.asp
-                for å legge til en funksjon som bruker 1sek for å sjekke at en spiller har vunnet*/
+                for å legge til en funksjon som bruker 1sek for å sjekke at en spiller har vunnet. Fått hjelp av Hanna Sørum til 
+                å prøve å finne riktig plassering av dette.*/
+
                 setTimeout(function() {
                 //Skriv ut hvilken spiller som har vunnet
                 document.getElementById("playerturn").innerHTML = "Spiller " + player + " har vunnet!";
@@ -427,7 +429,9 @@
             document.getElementById("playerturn").innerHTML = 'Spiller <span id="player">1</span> (<span id="playermark">X</span>) sin tur:';
             antallSpill += 1;
 
-                /*Oppgave 5 = Lagd en seksjon under spillet som viser antall spill som er spilt. Bruker her en eksisterende variabel
+                /*Oppgave 5 = Fått hjelp av Mathias Kristiansen til å finne ut hvilken syntax og hvor jeg skulle
+                plassere denne.
+                Lagd en seksjon under spillet som viser antall spill som er spilt. Bruker her en eksisterende variabel
                 som er plassert tidligere i koden som inneholder spillstatus, den oppdaterer antall runder spilt når man starter nytt
                 spill. */
             document.getElementById("antallspill").innerHTML = antallSpill;

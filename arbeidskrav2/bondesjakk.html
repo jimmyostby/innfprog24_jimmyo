@@ -68,6 +68,21 @@
             color: white;
             cursor: pointer;
         }
+        
+        #spillspilt{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 20px;
+            height: 100px;
+            width: 200px;
+            border-radius: 5px;
+            border: 1px solid;
+            font-size: medium;
+            align-items: center;
+            
+        }
+        
     </style>
 
 </head>
@@ -84,7 +99,7 @@
         <div id="celle6" class="celle"></div>
         <div id="celle7" class="celle"></div>
         <div id="celle8" class="celle"></div>
-        <!--Lagt til 7 celler for å få 16 ruter i spillet.-->
+        <!--Oppgave 6 = Lagt til 7 celler for å få 16 ruter totalt i spillet.-->
         <div id="celle9" class="celle"></div>
         <div id="celle10" class="celle"></div>
         <div id="celle11" class="celle"></div>
@@ -96,6 +111,8 @@
     </section>
    
     <button id="newgame" onclick="restartGame()">Start spill på nytt</button>
+    <!--Oppgave 6 = Lagt til en section med teksten "Antall spill" som teller hvor mange spille som er spilt
+    under restart-knappen.-->
     <section id="spillspilt">Antall spill:<span id="antallspill">1</span></section>
 
 
@@ -326,13 +343,15 @@
                 //Hvis en av plassene i vinnerkombinasjonen er tom, er det ikke vunnet noe.
                 //Da kan løkken bare fortsette å kjøre.
 
-                /*Oppgave 6 = Lagt til brikke 4 i løkken under.*/
+                /*Oppgave 6 = Lagt til brikke 4 under.*/
                 if(brikke1 === "" || brikke2 === "" || brikke3 === "" || brikke4 === "") {
                     continue;
                 }
 
                 //Hvis brikke1 er det samme som brikke 2, og brikke 2 er det samme som
                 //brikke3, er alle like, og vi har en vinnerkombinasjon. Da 
+
+                /*Oppgave 6 = Lagt til brikke 4 under. */
                 if(brikke1 === brikke2 && brikke2 === brikke3 && brikke3 === brikke4) {
                     rundenVunnet = true;
                     break;
@@ -341,16 +360,19 @@
 
             //Hvis runden er vunnet, skal vi gjøre noen handlinger:
             if(rundenVunnet === true) { 
+
                 /*Oppgave 3: Lest og brukt dokumentasjonen på https://www.w3schools.com/jsref/met_win_settimeout.asp
                 for å legge til en funksjon som bruker 1sek for å sjekke at en spiller har vunnet*/
                 setTimeout(function() {
                 //Skriv ut hvilken spiller som har vunnet
                 document.getElementById("playerturn").innerHTML = "Spiller " + player + " har vunnet!";
+
                     /*
                     Oppgave 2:
                     Brukt dokumentasjon hos "https://www.w3schools.com/jsref/prop_style_backgroundcolor.asp" til å endre bakgrunnsfargen
                     i <div> med id playerturn til gull, når spillet er vunnet.
                     */
+
                 document.getElementById("playerturn").style.backgroundColor = "#FFD700"
 
                 //Gjør restart spill-knappen synlig
@@ -361,6 +383,7 @@
 
                     /*Oppgave 6 = Lagt til syntax under for at spillebrikke 4 også skal endre farge til gull
                     når spillet er vunnet.*/
+
                 document.getElementById("celle" + vinnerKomboPlass1).style.color = "#FFD700"
                 document.getElementById("celle" + vinnerKomboPlass2).style.color = "#FFD700"
                 document.getElementById("celle" + vinnerKomboPlass3).style.color = "#FFD700"
@@ -380,8 +403,14 @@
         // 3) Sette turen til spiller en og spillersymbolet til X
         // 4) Fjerne melding om vinner eller uavgjort, og oppdatere med spillers tur-tekst
         //Dette samler vi i en funksjon, slik at vi kan kalle funksjonen og utføre alle disse tingene når vi trenger det:
+
+        /**/
         function restartGame() {
             // 1)
+
+                /*Oppgave 6 = Lagt til antall brikker som skal fjernes fra spillbrettet når spillet er avsluttet. Samt oppdatert
+                antallet i while-løkken*/
+
             spillerBrikker = ["","","","","","","","","","","","","","","",""];
             var celleteller = 0;
             while (celleteller < 16) {
@@ -396,6 +425,9 @@
             // 4)
             document.getElementById("playerturn").innerHTML = 'Spiller <span id="player">1</span> (<span id="playermark">X</span>) sin tur:';
             antallSpill += 1;
+
+                /*Oppgave 5 = Lagd en seksjon under spillet som viser antall spill som er spilt. Bruker her en eksisterende variabel
+                som er plassert tidligere i koden som inneholder spillstatus, den oppdaterer antall runder spilt. */
             document.getElementById("antallspill").innerHTML = antallSpill;
         }
     </script>

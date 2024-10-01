@@ -69,6 +69,7 @@
             cursor: pointer;
         }
         
+        /*Lagt til CSS for section under restart-knapp som teller antall spill.*/
         #spillspilt{
             display: flex;
             flex-direction: column;
@@ -427,7 +428,8 @@
             antallSpill += 1;
 
                 /*Oppgave 5 = Lagd en seksjon under spillet som viser antall spill som er spilt. Bruker her en eksisterende variabel
-                som er plassert tidligere i koden som inneholder spillstatus, den oppdaterer antall runder spilt. */
+                som er plassert tidligere i koden som inneholder spillstatus, den oppdaterer antall runder spilt når man starter nytt
+                spill. */
             document.getElementById("antallspill").innerHTML = antallSpill;
         }
     </script>

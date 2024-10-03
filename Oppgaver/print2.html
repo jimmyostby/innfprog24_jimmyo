@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="name"></p>
+    <p id="mail"></p>
+    <p id="age"></p>
+
+    <script>
+        //
+        function name(name, birthyear, email){
+            document.getElementById("name").innerHTML = name
+            document.getElementById("mail").innerHTML = email
+            document.getElementById("age").innerHTML = 2024 - birthyear
+        }
+        //For å skrive ut på nettsiden, må du først skrive navnet på funkjsonen som her er "name".Inne i parantesen
+        //skriver du det du vil skal skrives ut på nettsiden, Jimmy=name, 1993=birthyear, jimmyo@hiof.no=email. Som ligger
+        //inne i parantesene til funksjonen. 
+        name("Jimmy",1993,"jimmyo@hiof.no")
+    </script>
+</body>
+</html>

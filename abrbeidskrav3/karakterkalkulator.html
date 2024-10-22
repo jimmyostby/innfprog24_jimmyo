@@ -15,19 +15,46 @@
             <article>
             <h2>Eksamensoppgave 1</h2>
                 <label for="number"></label>
-                <input type="number" placeholder="Fyll inn poeng...">
+                <input type="number" id="oppgave1" placeholder="Fyll inn poeng...">
             <h2>Eksamensoppgave 2</h2>
                 <label for="number"></label>
-                <input type="number" placeholder="Fyll inn poeng...">
+                <input type="number" id="oppgave2" placeholder="Fyll inn poeng...">
             </article>
             <article>
-                <button type="button">Beregn karakter</button>
+                <button type="button" id="knapp">Beregn karakter</button>
             </article>
         <section>
             <h2>Eksamensresultat:</h2>
             <form>Resultat</form>
+            <p id="resultat"></p>
             
         </section>
+            <script>
+                const oppgave1 = document.getElementById("oppgave1").value
+                const oppgave2 = document.getElementById("oppgave2").value
+                const knapp = document.getElementById("knapp")
+                
+
+
+                knapp.addEventListener("click", function(event){
+                    console.log("hei")
+                    
+
+
+
+
+                })
+
+//Lag en funksjon som utfører regnestykket - legg denne funksjonen inne i knapp.addEventListener("click",function(NY FUNSKJON))
+
+
+
+
+
+
+            </script>
+
+
     </main>
 </body>
 </html>

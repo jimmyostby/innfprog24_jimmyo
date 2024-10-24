@@ -1,6 +1,6 @@
 body header{
 font-size: 30px;
-font-family: Arial, Helvetica, sans-serif;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
 text-align: center;
 }
 
@@ -10,10 +10,30 @@ background-color: #f9c7dd
 
 main section{
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
 }
 
 main section article{
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+label{
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+h2{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+
+#resultat {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+
+#knapp {
+    margin: 10px;
+    border: 2px solid;
+
 }

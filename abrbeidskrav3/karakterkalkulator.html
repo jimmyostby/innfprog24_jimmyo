@@ -14,20 +14,18 @@
         <section>
             <article>
             <h2>Eksamensoppgave 1</h2>
-                <label for="number"></label>
+                <label for="oppgave1">Poeng oppgave 1:</label>
                 <input type="number" id="oppgave1" placeholder="Fyll inn poeng...">
             <h2>Eksamensoppgave 2</h2>
-                <label for="number"></label>
+                <label for="oppgave2">Poeng oppgave 2:</label>
                 <input type="number" id="oppgave2" placeholder="Fyll inn poeng...">
             </article>
-            <article>
-                <button type="button" id="knapp">Beregn karakter</button>
-            </article>
-        <section>
-            <h2>Eksamensresultat:</h2>
-            <p id="resultat"></p>
-            
+                <button type="button" id="knapp">Beregn karakter</button>   
         </section>
+   
+        
+            <h2>Resultat</h2>
+            <p id="resultat"></p>
             <script>
                 // Lagd variabler som holder på maks antall poeng:
                 const makspoeng1 = 10
@@ -60,15 +58,19 @@
                     //Lagd en variabel som klarer å holde på resultatet (karakteren)
                     let resultat = "F"
                     console.log(beregning)
-
+                    // Lagd en for-løkke som sjekker input-verdiene brukeren fyller inn på nettsiden opp mot verdiene i arrayen. Deretter regnes det ut en 
+                    // prosentandel som igjen vises i form av karakterer fra A-F.  
                     for(let i = grades.length -1; i >=0; i--) {
                         if(beregning >= grades[i].treshold)
                             resultat = grades[i].grade;
                             break
                     }
-                   
+                   //Skriver her til HTML-elementet som skriver ut karakteren i form av tekststreng. 
                     document.getElementById("resultat").innerHTML = resultat
                 })
+
+
+
                   //Lagt på eventListner på knappen, slik at dataen lytter etter når knappen blir trykket. Har lagt på en function som skal utføre utregning
                     //når knappen blir trykket på. 
                     //knapp.addEventListener("click", calculate ())

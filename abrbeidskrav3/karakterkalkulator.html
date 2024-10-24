@@ -30,22 +30,37 @@
             
         </section>
             <script>
-                const oppgave1 = document.getElementById("oppgave1").value
-                const oppgave2 = document.getElementById("oppgave2").value
+                
+                let oppgave1 = document.getElementById("oppgave1").value
+                let oppgave2 = document.getElementById("oppgave2").value
                 const knapp = document.getElementById("knapp")
+               
+                knapp.addEventListener("click", calculate)
+
+                const grades = [
+                    {grade: "F", treshold: 0},
+                    {grade: "E", treshold: 25},
+                    {grade: "D", treshold: 44},
+                    {grade: "C", treshold: 68},
+                    {grade: "B", treshold: 88},
+                    {grade: "A", treshold: 100}
+                    ]
+
+
+                function calculate() {
+                    
+                   console.log(oppgave1)
+
+
+
+
+
+                }
                 
 
 
-                knapp.addEventListener("click", function(event){
-                    console.log("hei")
-                    
 
-
-
-
-                })
-
-//Lag en funksjon som utfører regnestykket - legg denne funksjonen inne i knapp.addEventListener("click",function(NY FUNSKJON))
+//Lag en funksjon som utfører regnestykket - legg variablene også her - og if-test
 
 
 

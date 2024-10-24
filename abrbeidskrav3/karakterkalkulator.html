@@ -25,18 +25,17 @@
             </article>
         <section>
             <h2>Eksamensresultat:</h2>
-            <form>Resultat</form>
             <p id="resultat"></p>
             
         </section>
             <script>
-                
-                let oppgave1 = document.getElementById("oppgave1").value
-                let oppgave2 = document.getElementById("oppgave2").value
-                const knapp = document.getElementById("knapp")
-               
-                knapp.addEventListener("click", calculate)
-
+                // Lagd variabler som holder på maks antall poeng:
+                const makspoeng1 = 10
+                const makspoeng2 = 12
+                //Lagd variabel for knapp
+                //const knapp = document.getElementById("knapp")
+              
+                //Limt inn karakterskala fra oppgaven:
                 const grades = [
                     {grade: "F", treshold: 0},
                     {grade: "E", treshold: 25},
@@ -44,27 +43,42 @@
                     {grade: "C", treshold: 68},
                     {grade: "B", treshold: 88},
                     {grade: "A", treshold: 100}
-                    ]
+                ]
 
 
-                function calculate() {
+                //Lagd en funksjon som utfører selve utregningen: 
+                //Har lagt variablene inn i funskjonen som utfører kalkuleringen, disse må være plassert her pga det er her input-verdiene kommer til bruk.
+                //function calculate() 
+                document.getElementById("knapp").addEventListener("click", function() {
+                    // Lagd variabler for å ta i mot tall fra input-feltet som skal brukes i utregningen videre. Disse tallene blir lagret i denne variabelen. Bruker her 
+                    // value for å kunne ta i mot tall. 
+                    const oppgave1 = document.getElementById("oppgave1").value
+                    const oppgave2 = document.getElementById("oppgave2").value
+                    //Lagd en variabel for utregning, slik at jeg ikke trenger å skrive dette for hver karakter. Dette gjør det enklere å gjenbruke senere i koden. 
+                    //Har endret på teksten i foremelen til å passe til variablene jeg har lagd i koden. 
+                    const beregning = (0.3 * (oppgave1 / makspoeng1 * 100)) + (0.7 * (oppgave2 / makspoeng2 * 100))
+                    //Lagd en variabel som klarer å holde på resultatet (karakteren)
+                    let resultat = "F"
+                    console.log(beregning)
+
+                    for(let i = grades.length -1; i >=0; i--) {
+                        if(beregning >= grades[i].treshold)
+                            resultat = grades[i].grade;
+                            break
+                    }
+                   
+                    document.getElementById("resultat").innerHTML = resultat
+                })
+                  //Lagt på eventListner på knappen, slik at dataen lytter etter når knappen blir trykket. Har lagt på en function som skal utføre utregning
+                    //når knappen blir trykket på. 
+                    //knapp.addEventListener("click", calculate ())
+
+
+                    //Fått hjelp av Hanna Sørum til å forstå og skrive en for-løkke. 
+
                     
-                   console.log(oppgave1)
 
-
-
-
-
-                }
-                
-
-
-
-//Lag en funksjon som utfører regnestykket - legg variablene også her - og if-test
-
-
-
-
+                    
 
 
             </script>

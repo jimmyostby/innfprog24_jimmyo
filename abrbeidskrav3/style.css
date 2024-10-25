@@ -18,8 +18,10 @@ main section article{
     font-family: Verdana, Geneva, Tahoma, sans-serif
 }
 
-label{
+section form{
+    text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif
+
 }
 
 h2{
@@ -27,13 +29,14 @@ h2{
     text-align: center;
 }
 
-#resultat {
+#resultater {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
+    font-size: 80px;
 }
 
 #knapp {
     margin: 10px;
     border: 2px solid;
-
+    border-radius: 5
 }

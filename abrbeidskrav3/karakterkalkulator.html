@@ -10,23 +10,25 @@
     <header>
         <h1>Karakterkalkulator</h1>
     </header>
-    <main>
+    
         <section>
-            <article>
-            <h2>Eksamensoppgave 1</h2>
-                <label for="oppgave1">Poeng oppgave 1:</label>
-                <input type="number" id="oppgave1" placeholder="Fyll inn poeng...">
-            <h2>Eksamensoppgave 2</h2>
-                <label for="oppgave2">Poeng oppgave 2:</label>
-                <input type="number" id="oppgave2" placeholder="Fyll inn poeng...">
-            </article>
-                <button type="button" id="knapp">Beregn karakter</button>   
-        </section>
-   
-        
+            <form>
+                <h2>Eksamensoppgave 1</h2>
+                    <label for="oppgave1">Poeng oppgave 1:</label>
+                    <input type="number" id="oppgave1" placeholder="Fyll inn poeng...">
+                <h2>Eksamensoppgave 2</h2>
+                    <label for="oppgave2">Poeng oppgave 2:</label>
+                    <input type="number" id="oppgave2" placeholder="Fyll inn poeng...">
+                    
+                    <article>
+                    <button type="button" id="knapp">Beregn karakter</button>
+                    </article>   
+            </form>
             <h2>Resultat</h2>
-            <p id="resultat"></p>
-            <script>
+            <p id="resultater"></p>
+        </section>
+            
+    <script>
                 // Lagd variabler som holder på maks antall poeng:
                 const makspoeng1 = 10
                 const makspoeng2 = 12
@@ -34,14 +36,15 @@
                 //const knapp = document.getElementById("knapp")
               
                 //Limt inn karakterskala fra oppgaven:
-                const grades = [
-                    {grade: "F", treshold: 0},
-                    {grade: "E", treshold: 25},
-                    {grade: "D", treshold: 44},
-                    {grade: "C", treshold: 68},
-                    {grade: "B", treshold: 88},
-                    {grade: "A", treshold: 100}
-                ]
+        const grades = [
+            {grade: "F", treshold: 0},
+            {grade: "E", treshold: 25},
+            {grade: "D", treshold: 44},
+            {grade: "C", treshold: 68},
+            {grade: "B", treshold: 88},
+            {grade: "A", treshold: 100}
+
+        ]
 
 
                 //Lagd en funksjon som utfører selve utregningen: 
@@ -60,13 +63,14 @@
                     console.log(beregning)
                     // Lagd en for-løkke som sjekker input-verdiene brukeren fyller inn på nettsiden opp mot verdiene i arrayen. Deretter regnes det ut en 
                     // prosentandel som igjen vises i form av karakterer fra A-F.  
-                    for(let i = grades.length -1; i >=0; i--) {
-                        if(beregning >= grades[i].treshold)
+                    for (let i = grades.length - 1; i >=0; i--) {
+                        if(beregning >= grades[i].treshold){
                             resultat = grades[i].grade;
-                            break
+                            break;
+                        }    
                     }
                    //Skriver her til HTML-elementet som skriver ut karakteren i form av tekststreng. 
-                    document.getElementById("resultat").innerHTML = resultat
+                    document.getElementById("resultater").innerHTML = resultat
                 })
 
 
@@ -83,9 +87,9 @@
                     
 
 
-            </script>
+    </script>
 
 
-    </main>
+    
 </body>
 </html>

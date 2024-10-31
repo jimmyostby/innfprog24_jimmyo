@@ -21,7 +21,7 @@
                     <input type="number" id="oppgave2" placeholder="Fyll inn poeng...">
                     
                     <article>
-                    <button type="button" id="knapp">Beregn karakter</button>
+                    <button type="button" id="knapp" disabled>Beregn karakter</button>
                     </article>   
             </form>
             <h2>Resultat</h2>
@@ -32,10 +32,8 @@
                 // Lagd variabler som holder på maks antall poeng:
                 const makspoeng1 = 10
                 const makspoeng2 = 12
-                //Lagd variabel for knapp
-                //const knapp = document.getElementById("knapp")
               
-                //Limt inn karakterskala fra oppgaven:
+                //Limt inn karakterskala fra oppgaven for å bruke videre i koden:
         const grades = [
             {grade: "F", treshold: 0},
             {grade: "E", treshold: 25},
@@ -43,8 +41,29 @@
             {grade: "C", treshold: 68},
             {grade: "B", treshold: 88},
             {grade: "A", treshold: 100}
-
         ]
+
+        /*Kode som løper fra linje 50 t.o.m linje 65 har jeg fått hjelp av ChatGPT til. Har brukt følgende promt for å få dette resultatet:
+        I koden har jeg 2 inputfelt og en knapp. Jeg vil at knappen skal være deaktivert ved start og kun være aktiv når begge input-feltene er fylt ut.
+        Kan du løse dette ved hjelp av addEventListner og if-test på enklest mulig måte? Og kan du skrive hvor i koden du gjør endringer med fet skrift?*/
+
+        function checkInputs() {
+            const oppgave1 = document.getElementById("oppgave1").value;
+            const oppgave2 = document.getElementById("oppgave2").value;
+            const knapp = document.getElementById("knapp");
+
+            // **Aktiverer knappen hvis begge input-feltene er fylt ut**
+            if (oppgave1 !== "" && oppgave2 !== "") {
+                knapp.disabled = false; // Aktiver knappen
+            } else {
+                knapp.disabled = true; // Deaktiver knappen
+            }
+        }
+
+                // **Legger til event listeners på inputfeltene for å sjekke når de endres**
+                document.getElementById("oppgave1").addEventListener("input", checkInputs);
+                document.getElementById("oppgave2").addEventListener("input", checkInputs);
+
 
 
                 //Lagd en funksjon som utfører selve utregningen: 
@@ -56,13 +75,15 @@
                     const oppgave1 = document.getElementById("oppgave1").value
                     const oppgave2 = document.getElementById("oppgave2").value
                     //Lagd en variabel for utregning, slik at jeg ikke trenger å skrive dette for hver karakter. Dette gjør det enklere å gjenbruke senere i koden. 
-                    //Har endret på teksten i foremelen til å passe til variablene jeg har lagd i koden. 
+                    //Har brukt formelen i oppgaveteksten og endret slik at den passer til varialene jeg selv har lagd i koden.
                     const beregning = (0.3 * (oppgave1 / makspoeng1 * 100)) + (0.7 * (oppgave2 / makspoeng2 * 100))
                     //Lagd en variabel som klarer å holde på resultatet (karakteren)
                     let resultat = "F"
                     console.log(beregning)
-                    // Lagd en for-løkke som sjekker input-verdiene brukeren fyller inn på nettsiden opp mot verdiene i arrayen. Deretter regnes det ut en 
-                    // prosentandel som igjen vises i form av karakterer fra A-F.  
+
+                    /*Lagd en for-løkke som sjekker input-verdiene brukeren fyller inn på nettsiden opp mot verdiene i arrayen. Deretter regnes det ut en 
+                    prosentandel som igjen vises i form av karakterer fra A-F.
+                    Har fått hjelp av Hanna Sørum for å få forklart hvordan en for-løkke fungerer og har brukt denne i koden under.*/
                     for (let i = grades.length - 1; i >=0; i--) {
                         if(beregning >= grades[i].treshold){
                             resultat = grades[i].grade;
@@ -72,24 +93,6 @@
                    //Skriver her til HTML-elementet som skriver ut karakteren i form av tekststreng. 
                     document.getElementById("resultater").innerHTML = resultat
                 })
-
-
-
-                  //Lagt på eventListner på knappen, slik at dataen lytter etter når knappen blir trykket. Har lagt på en function som skal utføre utregning
-                    //når knappen blir trykket på. 
-                    //knapp.addEventListener("click", calculate ())
-
-
-                    //Fått hjelp av Hanna Sørum til å forstå og skrive en for-løkke. 
-
-                    
-
-                    
-
-
     </script>
-
-
-    
 </body>
 </html>

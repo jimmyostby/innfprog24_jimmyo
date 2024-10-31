@@ -72,17 +72,32 @@
                 <p>Gå på en oppgave når denne dukker opp for å løse en oppgave for å score poeng. Du får 10 poeng for å løse en oppgave, 1 poeng for hvert konsept du samler.</p>
             </div>
         </section>
+    
         <canvas id="anim-area"></canvas>
     </main>
     <script>
         //PREPARE GAME CONFIG AND VARIABLES
         //TODO: config
         const gameConfig = {
+            
             playerName: "Jostein",
             energy: 10,
             points: 4000,
-            duration: 30
+            duration: 30,
+            gamePaused: true
         }
+        //Funksjon pause
+        let gamePaused = true
+
+        function startGame() {
+            gamePaused = false
+            return gamePaused
+        }
+
+        startGame();
+        console.log(gamePaused)
+
+        console.log(gameConfig)
 
         //Canvasområde
         const c = document.getElementById("anim-area")
@@ -91,15 +106,28 @@
         const ctx = c.getContext("2d")
         
 
-        console.log(gameConfig)
+        
 
+        //Pausetekst som vises når spillet starter
+        const pausetekst = "PAUSE"
 
+        function pauseGame(){
+            ctx.beginPath()
+            ctx.rect(600,562,190,25)
+            ctx.fillStyle = "#ffffff"
+            ctx.fill()
+            ctx.font = "25px solid Arial"
+            ctx.fillStyle = "#3c429b"
+            ctx.fillText(pausetekst, 376, 280)
+            ctx.closePath()
+        }
+        
+
+       
 
     
        
-        //Pausetekst
-
-    
+        //Pausetekst boks
         const pausetext = "Press P to pause"
 
             ctx.beginPath()
@@ -111,6 +139,29 @@
             ctx.fillText(pausetext, 622, 580)
             ctx.closePath()
 
+
+        
+
+        const fortran = {
+            speed: 3, 
+            x: c.width / 2,
+            y: c.height / 2
+        }
+
+        //Lager helten
+
+        const heroImage = new Image ()
+
+        let heroLoaded = false 
+
+        heroImage.onload = () => {
+            ctx.drawImage(heroImage, c.width / 2, c.height/2 );
+            heroLoaded = true;
+        }
+
+        heroImage.src = "icons/fortran.png"
+
+        heroLoaded ? ctx.drawImage(heroImage, 100, 100 ) : null;
 
 
         //TODO: notebook
@@ -183,6 +234,13 @@
         }
         //updateSingleStaticUI("duration", 31)
 
+        //Vise tekst når spillet er satt på pause
+
+        document.addEventListener("keydown", function(event){
+            if(event.key === "p") {
+                pauseGame()
+            }
+        })
 
         //WS2, Oppg 5:
         function updateConfigValue(configType, value) {

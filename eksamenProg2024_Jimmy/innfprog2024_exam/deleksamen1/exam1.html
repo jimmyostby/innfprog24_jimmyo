@@ -50,7 +50,8 @@
         //PRINT DECODED MATERIAL
         document.getElementById("heading").innerHTML = decode(code.hx)
         document.getElementById("intro").innerHTML = decode(code.ix)
-        document.getElementById("q1").innerhtml = decode(code.qx[0])
+        //Feil nr 4 på linje 54: Endret fra små bokstaver"html" til store "HTML". 
+        document.getElementById("q1").innerHTML = decode(code.qx[0])
         document.getElementByID("q2").innerHTML = decode(code.qx[1])
         //Feil nr 2 på kodelinje 55: Lagt til en avsluttende hakeparantes på slutten av syntaxen under. 
         document.getElementById("q3").innerHTML = decode(code.qx[2])

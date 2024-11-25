@@ -28,7 +28,8 @@
 
         function decode(input) {
             const alphabet = 'abcdefghijklmnopqrstuvwxyzæøå'
-            const alphabetUpper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ
+            //Feil nr. 1: Lagt til en avsluttende apostrof etter tekststrengen nedenfor:
+            const alphabetUpper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ'
 
             const getPreviousChar = (char, alphabet) => {
                 const index = alphabet.indexOf(char);

@@ -23,13 +23,13 @@
             hx: "Efmfltbnfo 1",
             ix: "A sfuuf gfjmfof ph lpnnfoufsf lpefo wbs cbsf gåstuf efm bw pqqhbwfo. Ev tlbm phta ub gps efh ufltufo ev tlsfw j bscfjetlsbw 1, ph tlsjwf fu ozuu sfgmfltkpotopubu oa oas ev ibs hkfoopngåsu lvstfu. J efuuf sfgmfltkpotopubufu, twbs qa gåmhfoef tqåstnam:",
             qx: ["Botfs ev qsphsbnnfsjoh tpn ozuujh?", "Tfs ev gps efh bu ev wjm csvlf qsphsbnnfsjoh j ejuu wjefsf tuvejfmåq?", "Iwps npujwfsu fs ev gps a vugpstlf qsphsbnnfsjoh wjefsf fuufs lvstfu?"],
-            //Feil nr 1 på kodelinje 27: Har byttet ut "=" med ":" på den siste egenskapen i dette objektet.
+            //Feil nr 1 på kodelinje 27: Har byttet ut avsluttende "=" med avsluttende ":" på den siste egenskapen i dette objektet.
             dx: "Mbh fo QEG bw eplvnfoufu, ph mfhh wfe caef efuuf eplvnfoufu tbnu cftwbsfmtfo gps bscfjetlsbw 1 j cftwbsfmtfo ujm efmfltbnfo 1."
         }
 
         function decode(input) {
             const alphabet = 'abcdefghijklmnopqrstuvwxyzæøå'
-            //Feil nr. 2 på kodelinje nr 32: Lagt til en avsluttende apostrof etter tekststrengen nedenfor:
+            //Feil nr. 2 på kodelinje nr 33: Har lagt til en avsluttende apostrof etter tekststrengen nedenfor:
             const alphabetUpper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ'
 
             const getPreviousChar = (char, alphabet) => {
@@ -51,11 +51,11 @@
         //PRINT DECODED MATERIAL
         document.getElementById("heading").innerHTML = decode(code.hx)
         document.getElementById("intro").innerHTML = decode(code.ix)
-        //Feil nr 3 på linje 54: Endret fra små bokstaver"html" til store "HTML". 
+        //Feil nr 4 på linje 55: Endret fra små bokstaver"html" til store "HTML". 
         document.getElementById("q1").innerHTML = decode(code.qx[0])
-        //Feil nr 4 på linje 56: Endret fra stor til liten bokstav : "ByID" til "ById"
+        //Feil nr 5 på linje 57: Endret fra stor til liten bokstav i avsluttningen på document.getElementById: "ByID" til "ById"
         document.getElementById("q2").innerHTML = decode(code.qx[1])
-        //Feil nr 5 på kodelinje 55: Lagt til en avsluttende hakeparantes på slutten av syntaxen under. 
+        //Feil nr 6 på kodelinje 59: Lagt til en avsluttende hakeparantes på slutten av syntaxen under. 
         document.getElementById("q3").innerHTML = decode(code.qx[2])
         document.getElementById("delivery").innerHTML = decode(code.dx)
     </script>

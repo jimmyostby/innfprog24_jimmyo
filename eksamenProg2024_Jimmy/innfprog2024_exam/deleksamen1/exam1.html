@@ -38,7 +38,8 @@
             };
 
             return input.split('').map(char => {
-                if (alphabetT.includes(char)) {
+                //Feil nr. 3 på kodelinje 42: Fjernet og slettet stor bokstav "T", da dette ikke er en variabel som er definert tidligere i koden.
+                if (alphabet.includes(char)) {
                     return getPreviousChar(char, alphabet)
                 } else if (alphabetUpper.includes(char)) {
                     return getPreviousChar(char, alphabetUpper)

@@ -38,6 +38,7 @@
             <h2>Oppgaver</h2>
             <ul id="todolist">
                 <!-- De to listeelementene skal byttes ut med utskrift av data fra programkoden i <script> -->
+                <!-- Oppgave1 minstekrav: Har kommentert ut listeelementene. Se forklaring på linje 103.   
                 <li>
                     <span class="tast-text">Les eksamensteksten</span>
                     <span class="task-status task-status-done">Done</span>
@@ -46,6 +47,7 @@
                     <span class="tast-text">Løs oppgavene i InnfProg-eksamen</span>
                     <span class="task-status task-status-todo">To do</span>
                 </li>
+            -->
             </ul>
         </section>
         <footer><p>Adminpanel IPv1.0</p></footer>
@@ -62,7 +64,7 @@
         ]
 
         let contactlist = ""
-//På slutten av kodelinje 71 har jeg brukt syntaxen vi har lagd tidligere i semesteret under "Functions CheatSheet". Jeg 
+//Oppgave 2,minstekrav: På slutten av kodelinje 71 har jeg brukt syntaxen vi har lagd tidligere i semesteret under "Functions CheatSheet". Jeg 
 //prøvde først å plassere denne nederst i koden for å skrive til variabelen contacts. Prøvde deretter å skrive til variabelen contacts + mail.
 //Dette fungerte ikke, så jeg prøvde å legge den inn i E:post feltet på kodelinje 71. Byttet ut endelsen fra : contacts til contact, da contacts ikke fungerte. 
         contacts.map((contact, index) => {
@@ -98,8 +100,23 @@
             {text: "Lag funksjonalitet for å registrere nye oppgaver", status: "To do"},
             {text: "Lag funksjonalitet for å sette en eksisterende oppgave til utført ved å endre status", status: "To do"}
         ]
+        //Oppgave 1, minstekrav: Har her brukt chatgpt for å få til oppgave1. Se eget ark.
+        let todoListHTML = "";
 
-        //Gjør e-mailadresser klikkbare: 
+todos.forEach(todo => {
+    todoListHTML += `
+    <li>
+        <span class="tast-text">${todo.text}</span>
+        <span class="task-status task-status-${todo.status.toLowerCase()}">${todo.status}</span>
+    </li>
+    `;
+
+});
+
+document.getElementById("todolist").innerHTML = todoListHTML;
+
+
+
 
 
 

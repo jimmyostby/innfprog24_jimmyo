@@ -62,15 +62,19 @@
         ]
 
         let contactlist = ""
-
+//På slutten av kodelinje 71 har jeg brukt syntaxen vi har lagd tidligere i semesteret under "Functions CheatSheet". Jeg 
+//prøvde først å plassere denne nederst i koden for å skrive til variabelen contacts. Prøvde deretter å skrive til variabelen contacts + mail.
+//Dette fungerte ikke, så jeg prøvde å legge den inn i E:post feltet på kodelinje 71. Byttet ut endelsen fra : contacts til contact, da contacts ikke fungerte. 
         contacts.map((contact, index) => {
             contactlist += `<article>
                 <p><strong>${contact.lastname}, ${contact.firstname}</strong><br />
-                    Kontor: ${contact.office} | E-post: ${contact.mail}</p>
+                    Kontor: ${contact.office} | E-post:<a href="mailto:${contact.mail}">${contact.mail}</a></p>
             </article>`
         })
 
         document.getElementById("contactlist").innerHTML = contactlist
+
+
         
         //BOOKS
         const books = [
@@ -95,7 +99,14 @@
             {text: "Lag funksjonalitet for å sette en eksisterende oppgave til utført ved å endre status", status: "To do"}
         ]
 
-        
+        //Gjør e-mailadresser klikkbare: 
+
+
+
+
+
+
+
         //CLOCK
         
     </script>

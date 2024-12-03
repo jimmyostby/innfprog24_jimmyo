@@ -41,7 +41,60 @@
         const ctx = canvas.getContext("2d")
 
         /* --- YOUR FUNCTIONALITY AND CODE GOES HERE --- */
-        
+        /*Lager her en variabel som skal holde på antall klikk som blir trykket på knappen.*/
+        let clickcount = 0;
+    /* Minstekrav oppgave1:
+    Har laget en funksjon som genererer en tilfeldig farge når knappen "legg til en farge"
+    knappen blir trykket på. Her har jeg brukt github-copilot for å få hjelp til å løse oppgaven. 
+    Se skjermdump i kildemappe. 
+    */
+
+    function getRandomHexColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
+/*Minstekrav oppgave2: Tenkte at denne måtte løses ved hjelp av en if-test og 
+at jeg måtte skrive til til knappen for at det skulle bli registrert antall klikk. Jeg hadde 
+hørt om "clickcount" fra før, men visste ikke hvordan jeg skulle bruke den. Spurte chat-gpt om
+kodehjelp, som genererte koden fra linje 66- 73 + 81-84. Byttet ut variablene for å få den til 
+å passe koden jeg har her. Se skjermdump i kildemappe.*/
+    document.getElementById("addColor").addEventListener(`click`,function(){
+        clickcount++;
+
+        if(clickcount >= 10){
+            addColor.disabled = true;
+            console.log("Du har nådd maks antall farger");
+        }
+    });
+
+
+    /*Minstekrav oppgave3:
+    Har lagt til en eventlistner som "lytter" etter om knappen blir trykket på.
+    Hvis knappen blir trykket på så skal den kjøre funksjonen som er lagd ovenfor.
+    Her har jeg brukt github-copilot for å hjelp til å løse oppgaven. Se skjermdump i kildemappe.
+    */
+    document.getElementById("addColor").addEventListener("click", () => {
+        const randomColor = getRandomHexColor();
+        console.log(randomColor);
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         //requestAnimationFrame
         const requestAnimationFrame = window.requestAnimationFrame || window.msRequestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame
